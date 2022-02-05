@@ -20,9 +20,9 @@ export interface CardProps {
   post: Post;
 }
 export interface HomeProps {
-  posts: [Post];
+  posts: Post[];
 }
 export interface PostDetailsProps {
-  userPosts: [Post];
+  userPosts: Post[];
   post: Post;
 }

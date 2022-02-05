@@ -33,7 +33,7 @@ export default function PostDetails(props: PostDetailsProps) {
           <div>
             <h3>Recommended Posts</h3>
             {props.userPosts.map((post) => (
-              <PostCard post={post} />
+              <PostCard post={post} key={post.id} />
             ))}
           </div>
         </PostDetailsBody>
@@ -41,7 +41,7 @@ export default function PostDetails(props: PostDetailsProps) {
     </div>
   );
 }
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   let postId = context.params.postId;
   const res = await fetch(`https://dummyapi.io/data/v1//post/${postId}`, {
     headers: { "app-id": "61fdc5feccc5eb03c2b64a7e" },
