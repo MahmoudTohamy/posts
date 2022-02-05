@@ -11,10 +11,21 @@ import { HomeProps, Post } from "../Constants/CommonConstants";
 import { CardsContainer, LoadMore } from "../Components/StyledComponents";
 const Home: NextPage = (props: HomeProps) => {
   const [pageNum, setPageNum] = useState<number>(1);
-  const [postsList, setPostsList] = useState<[Post]>();
+  const [postsList, setPostsList] = useState<[Post]>([]);
   useEffect(() => {
     setPostsList(props.posts);
   }, []);
+  const gitMorePosts = async () => {
+    const res = await fetch(
+      `https://dummyapi.io/data/v1/post?page=${pageNum + 1}&limit=8`,
+      {
+        headers: { "app-id": "61fdc5feccc5eb03c2b64a7e" },
+      }
+    );
+    let posts = await res.json();
+    setPageNum(pageNum + 1);
+    setPostsList([...postsList, ...posts.data]);
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -24,11 +35,11 @@ const Home: NextPage = (props: HomeProps) => {
       </Head>
       <Header />
       <CardsContainer>
-        {props.posts.map((post) => (
+        {postsList.map((post) => (
           <PostCard post={post} />
         ))}
       </CardsContainer>
-      <LoadMore>Load More</LoadMore>
+      <LoadMore onClick={gitMorePosts}>Load More</LoadMore>
     </div>
   );
 };
