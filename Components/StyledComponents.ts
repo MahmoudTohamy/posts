@@ -7,6 +7,11 @@ export const CardsContainer = styled.div`
   justify-content: space-around;
   padding: 50px 8%;
 `;
+export const HeaderTag = styled.div`
+  padding-left: 20px;
+  border-bottom: 1px solid gray;
+  text-align: left;
+`;
 export const Card = styled.div`
   width: 300px;
   height: 400px;
@@ -47,7 +52,7 @@ export const LoadMore = styled.button`
   cursor: pointer;
 `;
 export const PostDetailsContainer = styled.div`
-  padding: 5%;
+  padding: 3%;
 `;
 export const PostDetailsBody = styled.div`
   display: flex;

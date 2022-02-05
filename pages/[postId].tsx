@@ -10,7 +10,7 @@ import {
   PostData,
   PostDataImg,
   CardText,
-  DateTag,
+  HeaderTag,
 } from "../Components/StyledComponents";
 import PostCard from "../Components/PostCard";
 
