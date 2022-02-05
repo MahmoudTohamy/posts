@@ -1,14 +1,20 @@
 /** @format */
 
 import type { NextPage } from "next";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Header from "../Components/Header";
 import styles from "../styles/Home.module.css";
 import PostCard from "../Components/PostCard";
-import { HomeProps } from "../Constants/CommonConstants";
-import { CardsContainer } from "../Components/StyledComponents";
+import { HomeProps, Post } from "../Constants/CommonConstants";
+import { CardsContainer, LoadMore } from "../Components/StyledComponents";
 const Home: NextPage = (props: HomeProps) => {
+  const [pageNum, setPageNum] = useState<number>(1);
+  const [postsList, setPostsList] = useState<[Post]>();
+  useEffect(() => {
+    setPostsList(props.posts);
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
@@ -22,11 +28,12 @@ const Home: NextPage = (props: HomeProps) => {
           <PostCard post={post} />
         ))}
       </CardsContainer>
+      <LoadMore>Load More</LoadMore>
     </div>
   );
 };
 export async function getServerSideProps() {
-  const res = await fetch(`https://dummyapi.io/data/v1/post?page=1&limit=10`, {
+  const res = await fetch(`https://dummyapi.io/data/v1/post?page=1&limit=8`, {
     headers: { "app-id": "61fdc5feccc5eb03c2b64a7e" },
   });
   let posts = await res.json();

@@ -18,6 +18,7 @@ export const CardInfo = styled.div`
   flex-direction: column;
   padding: 10px;
   height: 200px;
+  text-align: left;
 `;
 export const CardImg = styled.img`
   width: 300px;
@@ -34,4 +35,13 @@ export const CardTitle = styled.span`
 `;
 export const CardText = styled.span`
   color: #bcbcbc;
+`;
+export const LoadMore = styled.button`
+  color: white;
+  background-color: #d84141;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `;
