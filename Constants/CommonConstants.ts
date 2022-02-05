@@ -22,3 +22,7 @@ export interface CardProps {
 export interface HomeProps {
   posts: [Post];
 }
+export interface PostDetailsProps {
+  userPosts: [Post];
+  post: Post;
+}

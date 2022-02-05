@@ -12,6 +12,7 @@ export const Card = styled.div`
   height: 400px;
   margin-bottom: 25px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
 `;
 export const CardInfo = styled.div`
   display: flex;
@@ -44,4 +45,22 @@ export const LoadMore = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+`;
+export const PostDetailsContainer = styled.div`
+  padding: 5%;
+`;
+export const PostDetailsBody = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+export const PostData = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+`;
+export const PostDataImg = styled.img`
+  width: 100%;
+  height: 400px;
+  min-width: 300px;
 `;
